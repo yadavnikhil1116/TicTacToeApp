@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TicTacToe</string>
     <string name="tictactoe_icon">tictactoe_icon</string>
+    <string name="restart">RESTART</string>
 </resources>

@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 Button but1, but2, but3, but4, but5, but6, but7, but8, but9, butre;
-String b1, b2, b3, b4, b5, b6, b7, b8, b9, b10;
+String b1, b2, b3, b4, b5, b6, b7, b8, b9;
 int flag = 0;
 int count = 0;
     @Override
@@ -20,29 +20,43 @@ int count = 0;
 
         init();
 
-        butre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                newgame();
-            }
-        });
+        butre.setOnClickListener(view -> newgame());
 
 
     }
 
     private void init(){
         but1 = findViewById(R.id.but1);
+        but1.setOnClickListener(onClickListener);
+
         but2 = findViewById(R.id.but2);
+        but2.setOnClickListener(onClickListener);
+
         but3 = findViewById(R.id.but3);
+        but3.setOnClickListener(onClickListener);
+
         but4 = findViewById(R.id.but4);
+        but4.setOnClickListener(onClickListener);
+
         but5 = findViewById(R.id.but5);
+        but5.setOnClickListener(onClickListener);
+
         but6 = findViewById(R.id.but6);
+        but6.setOnClickListener(onClickListener);
+
         but7 = findViewById(R.id.but7);
+        but7.setOnClickListener(onClickListener);
+
         but8 = findViewById(R.id.but8);
+        but8.setOnClickListener(onClickListener);
+
         but9 = findViewById(R.id.but9);
+        but9.setOnClickListener(onClickListener);
+
         butre = findViewById(R.id.butre);
     }
 
+    private final View.OnClickListener onClickListener = this::Check;
 
     public void Check(View v){
         Button curbtn = (Button) v;
@@ -115,12 +129,6 @@ int count = 0;
     }
 
     public void delay(){
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-                newgame();
-            }
-        }, 3000);
+        new Handler().postDelayed(this::newgame, 3000);
     }
 }
